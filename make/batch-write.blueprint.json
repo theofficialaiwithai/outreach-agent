@@ -1,0 +1,18 @@
+{
+  "name": "Outreach Targets: batch write (backup for Zapier)",
+  "metadata": { "version": 1 },
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-sheets:makeAPICall",
+      "version": 2,
+      "parameters": { "__IMTCONN__": "<YOUR_MAKE_GOOGLE_CONNECTION_ID>" },
+      "mapper": {
+        "url": "/spreadsheets/<YOUR_SPREADSHEET_ID>/values:batchUpdate",
+        "method": "POST",
+        "headers": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": "{\"valueInputOption\":\"USER_ENTERED\",\"data\":[{\"range\":\"<SHEET_NAME>!L2:N2\",\"values\":[[\"email@example.com\",\"Hunter Email Finder\",\"valid\"]]}]}"
+      }
+    }
+  ]
+}
